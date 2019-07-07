@@ -18,7 +18,7 @@ public class BucketSort2 {
         return bucketSort(arr, 0);
     }
 
-    public static ArrayList bucketSort(ArrayList arr, int index){
+    private static ArrayList bucketSort(ArrayList arr, int index){
         ArrayList<ArrayList<String>> buckets = new ArrayList<>();
         ArrayList result = new ArrayList();
 
@@ -88,11 +88,7 @@ public class BucketSort2 {
             }
             else{
 //                System.out.println(bucket + " " + index);
-                ArrayList al4 = new ArrayList();
-                for (int k = 0; k < bucket.size(); k++){
-                    al4.add(bucket.get(k));
-                }
-                result = merge(result, bucketSort(al4, index + 1));
+                result = merge(result, bucketSort(bucket, index + 1));
             }
         }
 
