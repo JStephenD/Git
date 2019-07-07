@@ -60,6 +60,6 @@ public class Node {
                 node.insertAfter(7);
             System.out.println(cnt+" : "+data);
         }
-        System.out.println("hello");
+        System.out.println("hello world");
     }
 }
