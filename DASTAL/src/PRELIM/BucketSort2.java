@@ -1,6 +1,6 @@
 package PRELIM;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class BucketSort2 {
     public static void main(String[] args) {
@@ -22,6 +22,7 @@ public class BucketSort2 {
         ArrayList<ArrayList<String>> buckets = new ArrayList<>();
         ArrayList result = new ArrayList();
 
+//        FORMAT NUMBERS TO BE 3 DIGIT
         Object obj;
         for (int i = 0; i < arr.size(); i++){
             obj = arr.get(i);
@@ -40,6 +41,7 @@ public class BucketSort2 {
             str = (String)arr.get(k);
             num = Integer.parseInt(str.charAt(index) + "");
 
+//            INITIAL CASE
             if (buckets.size() == 0) {
                 ArrayList al = new ArrayList();
                 al.add(str);
@@ -51,6 +53,7 @@ public class BucketSort2 {
                     str2 = buckets.get(j).get(0);
                     peek = Integer.parseInt(str2.charAt(index) + "");
 
+//                    BUCKET INDEX - > position of the bucket in the buckets
                     if (num < peek) {
                         bucketindex = 0;
                         break;
@@ -61,31 +64,29 @@ public class BucketSort2 {
                             break;
                     }
                 }
-                if (bucketindex > buckets.size()){
-                    ArrayList al2 = new ArrayList();
-                    al2.add(str);
-                    buckets.add(al2);
+//                if bucketindex is more than the current size
+//                ex, a new number is introduced, create a new bucket
+                if (bucketindex >= buckets.size()) {
+                    buckets.add(new ArrayList<>(Collections.singletonList(str)));
                 }
+//                get the bucket from the buckets and add the number
                 else{
-                    try {
-                        buckets.get(bucketindex).add(str);
-                    }
-                    catch (Exception e){
-                        ArrayList al3 = new ArrayList();
-                        al3.add(str);
-                        buckets.add(al3);
-                    }
+                    buckets.get(bucketindex).add(str);
                 }
             }
         }
 
         System.out.println("buckets: "+buckets);
 
+//        CHECK THE BUCKETS
         for (int i = 0; i < buckets.size(); i++){
             ArrayList bucket = buckets.get(i);
+//            BASE CASE SCENARIO
+//            merge the buckets which are only containing 1 item
             if (bucket.size() == 1){
                 result = merge(result, bucket);
             }
+//            if the bucket has more than 1 items, send it to a bucket sorter
             else{
 //                System.out.println(bucket + " " + index);
                 result = merge(result, bucketSort(bucket, index + 1));
