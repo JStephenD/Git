@@ -5,12 +5,7 @@ import java.util.*;
 public class BucketSort2 {
     public static void main(String[] args) {
         ArrayList arr = new ArrayList();
-        arr.add(1);
-        arr.add(100);
-        arr.add(8);
-        arr.add(23);
-        arr.add(34);
-        arr.add(456);
+        arr.addAll(Arrays.asList(1,100,8,23,34,456));
         System.out.println("final result " + bucketSort(arr));
     }
 
@@ -99,9 +94,7 @@ public class BucketSort2 {
     }
 
     public static ArrayList merge(ArrayList arr1, ArrayList arr2){
-        for (int i = 0; i < arr2.size(); i++){
-            arr1.add(arr2.get(i));
-        }
+        arr1.addAll(arr2);
         return arr1;
     }
 }
