@@ -1,0 +1,3 @@
+public void insertAfter(Object data){
+    this.setNext(new Node(data, this.getNext()));
+}

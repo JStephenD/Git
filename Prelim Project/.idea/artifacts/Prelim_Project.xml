@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Prelim Project">
+    <output-path>$PROJECT_DIR$/out/artifacts/Prelim_Project</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="sample.Main" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="Yaht" />
+        <option name="vendor" value="zee" />
+        <option name="version" value=".1" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Prelim_Project.jar">
+        <element id="module-output" name="Prelim Project" />
+      </element>
+    </root>
+  </artifact>
+</component>
