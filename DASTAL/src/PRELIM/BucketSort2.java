@@ -31,7 +31,7 @@ public class BucketSort2 {
         }
 
         String str, str2;
-        int num, peek, bucketindex;
+        int num = 0, peek = 0, bucketindex;
         for (int k = 0; k < arr.size(); k++){
             str = (String)arr.get(k);
             num = Integer.parseInt(str.charAt(index) + "");
@@ -61,6 +61,7 @@ public class BucketSort2 {
                 }
 //                if bucketindex is more than the current size
 //                ex, a new number is introduced, create a new bucket
+
                 if (bucketindex >= buckets.size()) {
                     buckets.add(new ArrayList<>(Collections.singletonList(str)));
                 }
