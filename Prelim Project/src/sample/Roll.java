@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.HashSet;
 
 public class Roll implements Rollable {
-    private Die dices[] = new Die[5];
+    private Die[] dices = new Die[5];
     private ArrayList<Integer> arrvals = new ArrayList<>();
     private int mode = 0;
     private boolean dummy = false;
@@ -48,46 +48,20 @@ public class Roll implements Rollable {
     public void setLock(int diedex, boolean locked){ dices[diedex].setLock(locked);}
     public void setMode(int mode){ this.mode = mode; }
     public int getVal(){
-//        1 - > sum1
-//        2 - > sum2
-//        3 - > sum3
-//        4 - > sum5
-//        5 - > sum5
-//        6 - > sum6
-//        7 - > 3k
-//        8 - > 4k
-//        9 - > FH
-//        10 - > SS
-//        11 - > LS
-//        12 - > YZ
-//        13 - > CH
         switch (mode){
-            case 0:
-                return getSumOf(1);
-            case 1:
-                return getSumOf(2);
-            case 2:
-                return getSumOf(3);
-            case 3:
-                return getSumOf(4);
-            case 4:
-                return getSumOf(5);
-            case 5:
-                return getSumOf(6);
-            case 6:
-                return getThreeOfAKind();
-            case 7:
-                return getFourOfAKind();
-            case 8:
-                return getFullHouse();
-            case 9:
-                return getShortStraight();
-            case 10:
-                return getLongStraight();
-            case 11:
-                return getYahtzee();
-            case 12:
-                return getChance();
+            case 0: return getSumOf(1);
+            case 1: return getSumOf(2);
+            case 2: return getSumOf(3);
+            case 3: return getSumOf(4);
+            case 4: return getSumOf(5);
+            case 5: return getSumOf(6);
+            case 6: return getThreeOfAKind();
+            case 7: return getFourOfAKind();
+            case 8: return getFullHouse();
+            case 9: return getShortStraight();
+            case 10: return getLongStraight();
+            case 11: return getYahtzee();
+            case 12: return getChance();
         }
         return 0;
     }

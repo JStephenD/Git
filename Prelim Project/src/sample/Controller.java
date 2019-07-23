@@ -81,6 +81,7 @@ public class Controller {
                 update();
             }
         }
+        System.out.println(roll.getArrvals());
     }
     public void importBtn(){
         importPane.setVisible(true);
@@ -113,7 +114,7 @@ public class Controller {
         yahtextra = 0;
         linenum = 0;
 
-        for (int i = 1; i <= 13; i++){
+        for (int i = 0; i <= 12; i++){
             getButton(i).setText("");
             getButton(i).setFont(Font.font("Gill Sans Ultra Bold", 12));
             getButton(i).setTextFill(Paint.valueOf("Red"));
@@ -229,16 +230,16 @@ public class Controller {
             if (rollOngoing) {
                 scoreSheet.insertRoll(scoredex, roll);
                 rollOngoing = false;
-                getButton(scoredex+1).setFont(Font.font("Gill Sans Ultra Bold", 16));
-                getButton(scoredex+1).setTextFill(Paint.valueOf("Black"));
+                getButton(scoredex).setFont(Font.font("Gill Sans Ultra Bold", 16));
+                getButton(scoredex).setTextFill(Paint.valueOf("Black"));
                 updateRound();
             }
         }
         else if (scoredex == 11){
             if (roll.isYahtzee()){
                 yahtextra+=50;
-                getButton(12).setText((50+yahtextra)+"");
-                getButton(12).setFont(Font.font("Gill Sans Ultra Bold", 13));
+                getButton(11).setText((50+yahtextra)+"");
+                getButton(11).setFont(Font.font("Gill Sans Ultra Bold", 13));
                 rollOngoing = false;
                 updateRound();
             }
@@ -247,29 +248,29 @@ public class Controller {
     }
 
     private void scoreHints(){
-        int btnnum = 1;
+        int btnnum = 0;
         for (Roll roll : scoreSheet.getUpperList()){
             if(roll.isDummy()){
-                this.roll.setMode(btnnum-1);
+                this.roll.setMode(btnnum);
                 getButton(btnnum).setText(this.roll.getVal()+"");
             }
             btnnum++;
         }
         for (Roll roll : scoreSheet.getLowerList()){
             if(roll.isDummy()){
-                this.roll.setMode(btnnum-1);
+                this.roll.setMode(btnnum);
                 getButton(btnnum).setText(this.roll.getVal()+"");
             }
-            if(btnnum == 12 && this.roll.isYahtzee()){
-                getButton(12).setText((50+yahtextra)+"");
-                getButton(12).setFont(Font.font("Gill Sans Ultra Bold", 13));
-                getButton(12).setTextFill(Paint.valueOf("Red"));
+            if(btnnum == 11 && this.roll.isYahtzee()){
+                getButton(11).setText((50+yahtextra)+"");
+                getButton(11).setFont(Font.font("Gill Sans Ultra Bold", 13));
+                getButton(11).setTextFill(Paint.valueOf("Red"));
             }
             btnnum++;
         }
     }
     private void clearScoreHints(){
-        int btnnum = 1;
+        int btnnum = 0;
         for (Roll roll : scoreSheet.getUpperList()){
             if(roll.isDummy()){
                 getButton(btnnum).setText("");
@@ -280,11 +281,11 @@ public class Controller {
             if(roll.isDummy()){
                 getButton(btnnum).setText("");
             }
-            if(btnnum == 12){
+            if(btnnum == 11){
                 if (yahtextra > 0) {
-                    getButton(12).setText((50 + yahtextra) + "");
-                    getButton(12).setFont(Font.font("Gill Sans Ultra Bold", 13));
-                    getButton(12).setTextFill(Paint.valueOf("Black"));
+                    getButton(11).setText((50 + yahtextra) + "");
+                    getButton(11).setFont(Font.font("Gill Sans Ultra Bold", 13));
+                    getButton(11).setTextFill(Paint.valueOf("Black"));
                 }
             }
             btnnum++;
@@ -326,7 +327,7 @@ public class Controller {
         subTotal.setText("0");
         roundlbl.setText("1");
 
-        for (int i = 1; i <= 13; i++){
+        for (int i = 0; i <= 12; i++){
             getButton(i).setText("");
             getButton(i).setFont(Font.font("Gill Sans Ultra Bold", 12));
             getButton(i).setTextFill(Paint.valueOf("Red"));
@@ -352,19 +353,19 @@ public class Controller {
     }
     private Button getButton(int btnnum){
         switch (btnnum){
-            case 1: return btn1;
-            case 2: return btn2;
-            case 3: return btn3;
-            case 4: return btn4;
-            case 5: return btn5;
-            case 6: return btn6;
-            case 7: return btn7;
-            case 8: return btn8;
-            case 9: return btn9;
-            case 10: return btn10;
-            case 11: return btn11;
-            case 12: return btn12;
-            case 13: return btn13;
+            case 0: return btn1;
+            case 1: return btn2;
+            case 2: return btn3;
+            case 3: return btn4;
+            case 4: return btn5;
+            case 5: return btn6;
+            case 6: return btn7;
+            case 7: return btn8;
+            case 8: return btn9;
+            case 9: return btn10;
+            case 10: return btn11;
+            case 11: return btn12;
+            case 12: return btn13;
         }
         return null;
     }
@@ -403,19 +404,19 @@ public class Controller {
     }
     private double getMaxofMode(int num){
         switch (num){
-            case 1: return 5;
-            case 2: return 10;
-            case 3: return 15;
-            case 4: return 20;
-            case 5: return 25;
-            case 6: return 30;
-            case 7: return 30;
-            case 8: return 30;
-            case 9: return 40;
-            case 10: return 25;
-            case 11: return 35;
-            case 12: return 50;
-            case 13: return 30;
+            case 1: return 5;   // 1s
+            case 2: return 10;  // 2s
+            case 3: return 15;  // 3s
+            case 4: return 20;  // 4s
+            case 5: return 25;  // 5s
+            case 6: return 30;  // 6s
+            case 7: return 30;  // 3k
+            case 8: return 30;  // 4k
+            case 9: return 40;  // fh
+            case 10: return 25; // ss
+            case 11: return 35; // ls
+            case 12: return 50; // y
+            case 13: return 30; // c
         }
         return 0;
     }

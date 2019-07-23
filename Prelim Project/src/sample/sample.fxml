@@ -20,7 +20,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="450.0" styleClass="bodybg" stylesheets="@css/bg.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="450.0" styleClass="bodybg" stylesheets="@css/bg.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -105,7 +105,7 @@
                   <String fx:value="rollpic" />
                   <String fx:value="rollButton" />
                </styleClass></Button>
-            <VBox layoutX="9.0" layoutY="33.0" prefHeight="363.0" prefWidth="63.0">
+            <VBox layoutX="9.0" layoutY="36.0" prefHeight="363.0" prefWidth="63.0">
                <children>
                   <ImageView fitHeight="53.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -157,7 +157,7 @@
                   </ImageView>
                </children>
             </VBox>
-            <VBox layoutX="70.0" layoutY="32.0" prefHeight="369.0" prefWidth="70.0">
+            <VBox layoutX="70.0" layoutY="35.0" prefHeight="369.0" prefWidth="70.0">
                <children>
                   <Button fx:id="btn1" mnemonicParsing="false" onAction="#score1Click" prefHeight="53.0" prefWidth="53.0" styleClass="value" stylesheets="@css/bg.css" textFill="RED">
                      <VBox.margin>
@@ -609,15 +609,20 @@
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" height="700.0" opacity="0.5" stroke="BLACK" strokeType="INSIDE" width="450.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a8d6ff" height="275.0" layoutX="43.0" layoutY="188.0" stroke="BLACK" strokeType="INSIDE" width="386.0" />
-            <Button layoutX="72.0" layoutY="195.0" mnemonicParsing="false" onAction="#backBtn" prefHeight="53.0" prefWidth="62.0" styleClass="back" />
+            <Button layoutX="54.0" layoutY="198.0" mnemonicParsing="false" onAction="#backBtn" prefHeight="48.0" prefWidth="50.0" styleClass="back" />
             <TextField fx:id="filename" layoutX="139.0" layoutY="303.0" prefHeight="25.0" prefWidth="175.0" text=".txt" />
             <Button layoutX="185.0" layoutY="338.0" mnemonicParsing="false" onAction="#okBtn" prefHeight="25.0" prefWidth="81.0" styleClass="okay" />
-            <Label layoutX="159.0" layoutY="257.0" prefHeight="31.0" prefWidth="135.0" text="FILE NAME">
+            <Label layoutX="169.0" layoutY="252.0" prefHeight="31.0" prefWidth="135.0" text="FILE NAME">
                <font>
-                  <Font name="Consolas" size="26.0" />
+                  <Font name="Consolas" size="24.0" />
                </font>
             </Label>
             <Label layoutX="192.0" layoutY="283.0" opacity="0.8" text="Desktop only" textFill="#ff4e4e" />
+            <Label layoutX="149.0" layoutY="207.0" text="Import Mode">
+               <font>
+                  <Font name="Consolas Bold" size="25.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Pane fx:id="success" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.columnSpan="4" GridPane.rowSpan="5">
