@@ -294,12 +294,7 @@ public class Controller {
     private void lock_unlock(int diedex){
         if (!importMode){
             Die die = roll.getDices()[diedex];
-            if (die.isLocked()) {
-                die.setLock(false);
-            }
-            else {
-                die.setLock(true);
-            }
+            die.setLock(!die.isLocked());
             if (rollOngoing) {
                 ImageView lock = null;
                 switch (diedex) {
