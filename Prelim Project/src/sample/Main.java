@@ -10,7 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("YathUI.fxml"));
         primaryStage.setTitle("YATZY");
         primaryStage.setScene(new Scene(root, 450, 700));
         primaryStage.show();

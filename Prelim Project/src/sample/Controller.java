@@ -42,8 +42,8 @@ public class Controller {
             yahtextra,
             round=1,
             linenum = 0; // import mode
-    private boolean available[] = new boolean[13];
-    private String lines[] = new String[13];
+    private boolean[] available = new boolean[13];
+    private String[] lines = new String[13];
 
     // EVENTS
     public void rollButtonClick(){
