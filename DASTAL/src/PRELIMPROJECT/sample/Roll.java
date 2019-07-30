@@ -1,86 +1,72 @@
-package PRELIMPROJECT;
+package PRELIMPROJECT.sample;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 
-public class Roll {
-    private Die die1,die2,die3,die4,die5;
+public class Roll implements Rollable {
+    private Die[] dices = new Die[5];
     private ArrayList<Integer> arrvals = new ArrayList<>();
     private int mode = 0;
+    private boolean dummy = false;
 
-    public Roll(Die die1, Die die2, Die die3, Die die4, Die die5){
-        this.die1 = die1;
-        this.die2 = die2;
-        this.die3 = die3;
-        this.die4 = die4;
-        this.die5 = die5;
-        setUp();
-    }
-    public Roll(int val1, int val2, int val3, int val4, int val5){
-        this(new Die(val1), new Die(val2), new Die(val3), new Die(val4), new Die(val5));
+    public Roll(int d1, int d2, int d3, int d4, int d5){
+        dices[0] = new Die(d1);
+        dices[1] = new Die(d2);
+        dices[2] = new Die(d3);
+        dices[3] = new Die(d4);
+        dices[4] = new Die(d5);
+        updateVals();
     }
     public Roll(){
-        this(new Die(), new Die(), new Die(), new Die(), new Die());
+        for (int i = 0; i < 5; i++){
+            dices[i] = new Die();
+        }
+        updateVals();
+    }
+    public Roll(boolean dummy){
+        this.dummy = dummy;
     }
 
-    private void setUp(){
-        arrvals.add(this.die1.getVal());
-        arrvals.add(this.die2.getVal());
-        arrvals.add(this.die3.getVal());
-        arrvals.add(this.die4.getVal());
-        arrvals.add(this.die5.getVal());
+    public void roll(){
+        for (Die die : dices){
+            if (!die.isLocked()){
+                die.roll();
+            }
+        }
+        updateVals();
+    }
+    private void updateVals(){
+        arrvals.clear();
+        for (Die die : dices){
+            arrvals.add(die.getVal());
+        }
         Collections.sort(arrvals);
     }
 
-    public void setMode(int mode){
-        this.mode = mode;
-    }
+    // ESSENTIALS
+    public void setLock(int diedex, boolean locked){ dices[diedex].setLock(locked);}
+    public void setMode(int mode){ this.mode = mode; }
     public int getVal(){
-//        1 - > sum1
-//        2 - > sum2
-//        3 - > sum3
-//        4 - > sum5
-//        5 - > sum5
-//        6 - > sum6
-//        7 - > 3k
-//        8 - > 4k
-//        9 - > FH
-//        10 - > SS
-//        11 - > LS
-//        12 - > YZ
-//        13 - > CH
         switch (mode){
-            case 0:
-                return getSumOf(1);
-            case 1:
-                return getSumOf(2);
-            case 2:
-                return getSumOf(3);
-            case 3:
-                return getSumOf(4);
-            case 4:
-                return getSumOf(5);
-            case 5:
-                return getSumOf(6);
-            case 6:
-                return getThreeOfAKind();
-            case 7:
-                return getFourOfAKind();
-            case 8:
-                return getFullHouse();
-            case 9:
-                return getShortStraight();
-            case 10:
-                return getLongStraight();
-            case 11:
-                return getYahtzee();
-            case 12:
-                return getChance();
+            case 0: return getSumOf(1);
+            case 1: return getSumOf(2);
+            case 2: return getSumOf(3);
+            case 3: return getSumOf(4);
+            case 4: return getSumOf(5);
+            case 5: return getSumOf(6);
+            case 6: return getThreeOfAKind();
+            case 7: return getFourOfAKind();
+            case 8: return getFullHouse();
+            case 9: return getShortStraight();
+            case 10: return getLongStraight();
+            case 11: return getYahtzee();
+            case 12: return getChance();
         }
         return 0;
     }
 
+    // METHODS
     private int getFrequency(int val){ return Collections.frequency(arrvals, val); }
     private int getSum(){
         int sum = 0;
@@ -89,7 +75,10 @@ public class Roll {
         }
         return sum;
     }
+    public boolean isDummy(){ return dummy; }
+    public boolean isYahtzee(){ return getFrequency(arrvals.get(0)) == 5;}
 
+    // SCORE SHEET METHODS
     public int getSumOf(int val){ return getFrequency(val) * val; }
     public int getChance(){ return getSum(); }
     public int getFullHouse(){
@@ -135,7 +124,7 @@ public class Roll {
                 else{
                     offset++;
                 }
-                left = true;
+                right = true;
             }
         }
         prev = 0;
@@ -164,5 +153,7 @@ public class Roll {
     public int getFourOfAKind(){ return (getFrequency(arrvals.get(2)) >= 4) ? getSum() : 0; }
     public int getThreeOfAKind(){ return (getFrequency(arrvals.get(2)) >= 3) ? getSum() : 0; }
 
+    // GETTERS
+    public Die[] getDices(){ return dices;}
     public ArrayList<Integer> getArrvals(){ return arrvals; }
 }
