@@ -1,0 +1,77 @@
+.bodybg{
+ -fx-background-image: url('../imgs/bg.jpg');
+ -fx-background-size: auto 100%;
+}
+.blue{
+ -fx-background-image: url('../imgs/blue.jpg');
+ -fx-background-size: auto 100%;
+}
+.rollButton:pressed{
+ -fx-scale-x: 0.9;
+ -fx-scale-y: 0.9;
+}
+.import{
+ -fx-background-image: url('../imgs/import.png');
+ -fx-background-size: auto 100%;
+}
+.back{
+ -fx-background-image: url('../imgs/back.png');
+ -fx-background-size: 100% 100%;
+}
+.okay{
+ -fx-background-image: url('../imgs/okay.jpg');
+ -fx-background-size: 100% 100%;
+ -fx-background-color: black;
+}
+.new{
+ -fx-background-image: url('../imgs/new.png');
+ -fx-background-size: 100% 100%;
+}
+.rollpic{
+    -fx-background-image: url('../imgs/rollpic.png');
+    -fx-background-size: 100% 100%;
+    -fx-background-color: black;
+}
+.rollpic_click{
+    -fx-background-image: url('../imgs/rollpic_clicked.png');
+    -fx-background-size: 100% 100%;
+    -fx-background-color: black;
+}
+.rollpic_disable{
+    -fx-background-image: url('../imgs/rollpic_disable.png');
+    -fx-background-size: 100% 100%;
+    -fx-background-color: black;
+}
+.d1{
+ -fx-background-image: url('../imgs/D1.jpg');
+ -fx-background-size: 100% 100%;
+ -fx-background-color: black;
+}
+.d2{
+ -fx-background-image: url('../imgs/D2.jpg');
+ -fx-background-size: 100% 100%;
+ -fx-background-color: black;
+}
+.d3{
+ -fx-background-image: url('../imgs/D3.jpg');
+ -fx-background-size: 100% 100%;
+ -fx-background-color: black;
+}
+.d4{
+ -fx-background-image: url('../imgs/D4.jpg');
+ -fx-background-size: 100% 100%;
+ -fx-background-color: black;
+}
+.d5{
+ -fx-background-image: url('../imgs/D5.jpg');
+ -fx-background-size: 100% 100%;
+ -fx-background-color: black;
+}
+.d6{
+ -fx-background-image: url('../imgs/D6.jpg');
+ -fx-background-size: 100% 100%;
+ -fx-background-color: black;
+}
+.value{
+ -fx-background-color: rgb(166, 200, 255);
+}
