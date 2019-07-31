@@ -1,0 +1,10 @@
+<script>
+    $(document).ready(function(){
+        $("#search_text").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#record_structure tbody tr").filter(function() {      
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
