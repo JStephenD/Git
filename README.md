@@ -21,11 +21,12 @@ ORDER BY
                         ORDER BY invno
 
 - 3
-  - SELECT cname, SUM(qty*uprice) as sales_amount FROM customer INNER JOIN sales ON customer.custid=sales.custid INNER JOIN salesitems ON sales.invno=salesitems.invno INNER JOIN products ON salesitems.prodid=products.prodid GROUP BY cname ORDER BY sales_amount DESC LIMIT 1
+  - SELECT cname, SUM(qty\*uprice) as sales_amount FROM customer INNER JOIN sales ON customer.custid=sales.custid INNER JOIN salesitems ON sales.invno=salesitems.invno INNER JOIN products ON salesitems.prodid=products.prodid GROUP BY cname ORDER BY sales_amount DESC LIMIT 1
+  
 - 4
-  - SELECT catdesc, SUM(qty*uprice) as total_profit FROM category,products,salesitems WHERE category.catcode=products.catcode AND products.prodid=salesitems.prodid AND category.catcode='G01'
+  - SELECT catdesc, SUM(qty\*uprice) as total_profit FROM category,products,salesitems WHERE category.catcode=products.catcode AND products.prodid=salesitems.prodid AND category.catcode='G01'
 UNION
-SELECT catdesc, SUM(qty*uprice) as total_profit FROM category,products,salesitems WHERE category.catcode=products.catcode AND products.prodid=salesitems.prodid AND category.catcode='G02'
+SELECT catdesc, SUM(qty\*uprice) as total_profit FROM category,products,salesitems WHERE category.catcode=products.catcode AND products.prodid=salesitems.prodid AND category.catcode='G02'
 
 - 5
   - SELECT cname, COUNT(customer.custid) as num_of_sales FROM customer INNER JOIN sales ON customer.custid=sales.custid GROUP BY cname HAVING COUNT(customer.custid) > 1
@@ -34,12 +35,12 @@ SELECT catdesc, SUM(qty*uprice) as total_profit FROM category,products,salesitem
   - SELECT cname FROM customer WHERE customer.custid NOT IN (SELECT customer.custid FROM customer INNER JOIN sales ON customer.custid=sales.custid)
   
 - 7 
-  - SELECT stype, SUM(qty*uprice) as total_amount 
+  - SELECT stype, SUM(qty\*uprice) as total_amount 
 FROM sales 
 INNER JOIN salesitems ON sales.invno=salesitems.invno
 INNER JOIN products ON salesitems.prodid=products.prodid  WHERE stype='Cash'
 UNION
-SELECT stype, SUM(qty*uprice) as total_amount 
+SELECT stype, SUM(qty\*uprice) as total_amount 
 FROM sales 
 INNER JOIN salesitems ON sales.invno=salesitems.invno
 INNER JOIN products ON salesitems.prodid=products.prodid  WHERE stype='Credit'
