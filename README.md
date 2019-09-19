@@ -1,6 +1,16 @@
 # Git
 Dastal InfoMan OOP
 
+- 1
+  - SELECT 
+    catdesc,COUNT(prodid) as num_products
+FROM 
+    category, products
+WHERE
+    category.catcode=products.catcode
+ORDER BY
+    catdesc
+
 - 2
   - SELECT cname,sdate,sales.invno,catdesc,pdesc,qty,uprice,(qty*uprice) as amount 
     FROM customer 
