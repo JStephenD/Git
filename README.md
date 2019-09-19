@@ -1,6 +1,15 @@
 # Git
 Dastal InfoMan OOP
 
+- 2
+  - SELECT cname,sdate,sales.invno,catdesc,pdesc,qty,uprice,(qty*uprice) as amount 
+    FROM customer 
+        INNER JOIN sales ON customer.custid=sales.custid
+            INNER JOIN salesitems ON sales.invno=salesitems.invno
+                INNER JOIN products ON salesitems.prodid=products.prodid
+                    INNER JOIN category ON products.catcode=category.catcode
+                        ORDER BY invno
+
 - 3
   - SELECT cname, SUM(qty*uprice) as sales_amount FROM customer INNER JOIN sales ON customer.custid=sales.custid INNER JOIN salesitems ON sales.invno=salesitems.invno INNER JOIN products ON salesitems.prodid=products.prodid GROUP BY cname ORDER BY sales_amount DESC LIMIT 1
 - 4
