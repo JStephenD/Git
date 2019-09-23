@@ -12,7 +12,7 @@ __NETWORK FLOW AND MATCHING__
       - [Matching bipartite](https://www.sciencedirect.com/topics/computer-science/graph-matching)
     
     - On Flow Network
-      - [Flow Netrowk brilliant wiki](https://brilliant.org/wiki/flow-network/)
+      - [Flow Netrowk brilliant wiki](https://brilliant.org/wiki/flow-network/) > maximum flow,minimum cost flow
       - [Flow Network wiki](https://en.wikipedia.org/wiki/Flow_network)
     
   - Reqs:
