@@ -14,3 +14,10 @@ __NETWORK FLOW AND MATCHING__
     - On Flow Network
       - [Flow Netrowk brilliant wiki](https://brilliant.org/wiki/flow-network/)
       - [Flow Network wiki](https://en.wikipedia.org/wiki/Flow_network)
+    
+  - Reqs:
+    - flows and cuts
+    - maximum flow algorithms
+    - maximum bipartite matching
+    - baseball elimination
+    - minimum-cost flow
