@@ -18,7 +18,9 @@ ix. Description of the collection and lien enforcement procedures; and
 x. Method of calculating the total amount of obligation in case of default. 
 
 REPUBLIC ACT NO. 3765 TRUTH IN LENDING ACT
-Section 4 Any creditor shall furnish to each person to whom credit is extended, prior to the consummation of the transaction, a clear statement in writing setting forth, to the extent applicable and in accordance with rules and regulations prescribed by the Board, the following information:
+Section 4 Any creditor shall furnish to each person to whom credit is extended, prior to the consummation of the transaction, a 
+clear statement in writing setting forth, to the extent applicable and in accordance with rules and regulations prescribed by 
+the Board, the following information:
 	(1) the cash price or delivered price of the property or service to be acquired;
 (2) the amounts, if any, to be credited as down payment and/or trade-in;
 (3) the difference between the amounts set forth under clauses (1) and (2);
