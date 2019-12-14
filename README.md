@@ -3,6 +3,11 @@ to do
 
 unhandled callback error
 
+def win
+> if self.curr == self.goal
+>> return True
+> return False
+
 def move
 
 def print memo
