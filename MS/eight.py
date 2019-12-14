@@ -76,6 +76,12 @@ class Eight:
                 for j, num in enumerate(row):
                     if num == 0:
                         return [i, j]
+        
+        def swap(self, fr, to):
+            a = self.tiles[fr[0]][fr[1]]
+            b = self.tiles[to[0]][to[1]]
+            self.tiles[fr[0]][fr[1]] = b
+            self.tiles[to[0]][to[1]] = a
 
         def __str__(self):
             retstr = ''
@@ -101,9 +107,38 @@ class Eight:
             [8,0,4],
             [7,6,5]
         ])
+        self.moves = 0
     
-    def move(self, action):
-        pass
+    def move(self, move):
+        loc = self.curr.locate()
+        moved = False
+        if move in ['left', 'a']:
+            if loc[1] == 0:
+                return False
+            self.curr.swap(loc, [loc[0], loc[1]-1])
+            moved = True
+        if move in ['right', 'd']:
+            if loc[1] == len(self.curr.tiles[0])-1:
+                return False
+            self.curr.swap(loc, [loc[0], loc[1]+1])
+            moved = True
+        if move in ['up', 'w']:
+            if loc[0] == 0:
+                return False
+            self.curr.swap(loc, [loc[0]-1, loc[1]])
+            moved = True
+        if move in ['down','s']:
+            if loc[0] == len(self.curr.tiles)-1:
+                return False
+            self.curr.swap(loc, [loc[0]+1, loc[1]])
+            moved = True
+        if moved:
+            self.moves += 1
+            print('0 location', self.curr.locate())
+            print('\n'.join(map(str, [row for row in self.curr.tiles])))
+    
+    def win(self):
+        return self.curr == self.goal
 
     def randomize(self):
         print('before----')
@@ -117,10 +152,13 @@ class Eight:
 
     def start(self):
         self.con = self.KeyboardListener()
+        movements = ['up','left','right','down','w','s','a','d']
         while True:
-            action = self.con.listen()
-            if action:
-                print(action)
+            move = self.con.listen()
+            if move in movements:
+                self.move(move)
+                if self.win():
+                    print(f'win {self.moves} moves')
 
     def print_memo(self):
         pass 
@@ -130,4 +168,4 @@ class Eight:
 
 game = Eight()
 game.randomize()
-# game.start()
+game.start()
