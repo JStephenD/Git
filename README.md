@@ -23,3 +23,4 @@ format in pseudocode:
 
 >>> print([num for num in row])
     
+attribute: num_moves
