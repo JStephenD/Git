@@ -11,10 +11,15 @@ def win
 > return False 
 
 def move
+> if self.win():
+
+>> wtafak
 
 def print memo
 format in pseudocode:
 > for rowfirst in range(len(tiles)):
+
 >> for row in tiles[rowfirst]:
+
 >>> print([num for num in row])
     
