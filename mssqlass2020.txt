@@ -1,0 +1,15 @@
+
+
+
+SELECT c.Acct_No, bm.Bill_Date, bd.Receivable as Debit, bpd.Collected as Credit
+FROM Clients c
+INNER JOIN Bill_Master bm
+	ON c.Acct_No = bm.Acct_No
+INNER JOIN BillPymt bp
+	ON bp.BillNo = bm.Bill_No
+INNER JOIN Bill_Details bd
+	ON bd.Bill_No = bm.Bill_No
+INNER JOIN BillPymtDetails bpd
+	ON bpd.BillNo = bm.Bill_No
+WHERE c.Acct_No = '0111200005'
+AND YEAR(bm.Bill_Date) = 2013
