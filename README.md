@@ -1,3 +1,5 @@
+https://docs.google.com/presentation/d/1u_0fQl0RD5GftHrwYj8XilHasrQvKIt2NQ3n-EAaKxM/edit?usp=drivesdk
+
 
 to do
 
