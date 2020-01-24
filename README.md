@@ -8,3 +8,5 @@
 - 8 image processing: photopea
 - 9 machine drawing: cura
 - 10 gui: adobe xd
+
+https://docs.google.com/document/d/1hhIaP6clpjeebgBhmlm6E4drP4HFWnRTK-DlHl-0kPo/edit?usp=drivesdk
