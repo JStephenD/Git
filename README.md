@@ -10,3 +10,5 @@
 - 10 gui: adobe xd
 
 https://docs.google.com/document/d/1hhIaP6clpjeebgBhmlm6E4drP4HFWnRTK-DlHl-0kPo/edit?usp=drivesdk
+
+https://docs.google.com/document/u/0/d/1hhIaP6clpjeebgBhmlm6E4drP4HFWnRTK-DlHl-0kPo/mobilebasic
