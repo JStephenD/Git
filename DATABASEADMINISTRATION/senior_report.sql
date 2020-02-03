@@ -4,8 +4,8 @@ SELECT DISTINCT
 	c.Acct_No,
 	'Full Name' = c.C_LName + ', ' + c.C_FName,
 	'Consumption Rate' = LEFT(wr.Cons_from, 2) + ' - ' + LEFT(wr.Cons_to, 2),
-	'min_charge' = SUM(wr.Min_Charge),
-	'extra_charge' = SUM(dbo.getExtraCharge(mi.Cur_Consumption, wr.C_Type)),
+	'Total Min Charge' = SUM(wr.Min_Charge),
+	'Total Extra Charge' = SUM(dbo.getExtraCharge(mi.Cur_Consumption, wr.C_Type)),
 	'total' = SUM(wr.Min_Charge) + SUM(dbo.getExtraCharge(mi.Cur_Consumption, wr.C_Type))
 	/*'total' = SUM((wr.Min_Charge + dbo.getExtraCharge(mi.Cur_Consumption, wr.C_Type)))*/
 FROM 
