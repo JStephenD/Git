@@ -1,11 +1,12 @@
-SELECT
+USE BillingCollection
+
+SELECT DISTINCT
 	c.Acct_No,
-	c.C_FName,
-	c.C_LName,
-	'consump' = SUM(mi.Cur_Consumption),
-	'rate' = SUM(wr.Min_Charge),
-	'extra' = SUM(wr.Rate * (mi.Cur_Consumption - wr.Cons_from)),
-	'total' = SUM(wr.Min_Charge + wr.Rate * (mi.Cur_Consumption - wr.Cons_from))
+	'Full Name' = c.C_LName + ', ' + c.C_FName,
+	'Consumption' = 'Above ' + LEFT(mi.Cur_Consumption, 1) + '0',
+	'min_charge' = SUM(wr.Min_Charge),
+	'extra_charge' = SUM(dbo.getExtraCharge(mi.Cur_Consumption, wr.C_Type)),
+	'total' = SUM((wr.Min_Charge + dbo.getExtraCharge(mi.Cur_Consumption, wr.C_Type)))
 FROM 
 	Clients c
 INNER JOIN
@@ -15,7 +16,10 @@ INNER JOIN
 WHERE
 	c.C_Type = 08 AND
 	YEAR(mi.MR_Date) = 2018 AND
-	mi.Cur_Consumption BETWEEN wr.Cons_from AND wr.Cons_to
+	mi.Cur_Consumption >= wr.Cons_from
 GROUP BY 
-	c.Acct_No, c.C_FName, c.C_LName
-ORDER BY C_FName
+	c.Acct_No, c.C_FName, c.C_LName, 
+	mi.Cur_Consumption,
+	/* wr.Min_Charge, wr.Rate, wr.Cons_from */
+ORDER BY
+	'Full Name'
