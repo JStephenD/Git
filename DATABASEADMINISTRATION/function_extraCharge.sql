@@ -25,6 +25,6 @@ BEGIN
 			WaterRates wr
 		WHERE
 			wr.C_Type = @ctype AND
-			@consump >= wr.Cons_from)
+			@consump BETWEEN wr.Cons_from AND wr.Cons_to)
 END
 GO
