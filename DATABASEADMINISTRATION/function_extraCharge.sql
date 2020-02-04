@@ -10,7 +10,7 @@ AS
 BEGIN
 	RETURN
 		(SELECT 
-			SUM(wr.Rate * (@consump+1 - wr.Cons_from))
+			wr.Rate * (@consump+1 - wr.Cons_from)
 		FROM 
 			WaterRates wr
 		WHERE
